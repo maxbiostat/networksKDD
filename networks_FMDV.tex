@@ -41,7 +41,7 @@ $^c$ National Institute for Space Research, S\~ao Jos\'e dos Campos, SP, Brazil\
 }
 
 
-{\footnotesize Received on *****, 2014/ accepted on *****, 2014}
+{\footnotesize Received on *****, 2015/ accepted on *****, 2015}
 
 \end{center}
 
@@ -68,19 +68,19 @@ Our data spans over eight countries, covering 16 years of FMDV circulation in th
 
  
 
-The availability of time-stamped georeferenced genomic (nucleotides and amino acid) sequences made possible the emergence of the  new field of phylodynamics \cite{grenfell, MEP} in Evolutionary Biology.
+The availability of time-stamped georeferenced genomic (nucleotides and amino acid) sequences made possible the emergence of the  new field of phylodynamics~\cite{grenfell,MEP} in Evolutionary Biology.
 Phylodynamics provides the theoretical foundation for the use of the information contained in genomes to draw inference on temporal and spatial behavior of organisms.
-The growing availability of  data, however, calls for the development of novel statistical approaches to inference, and new methods for data exploration, visualization and knowledge discovery \cite{putting, cancer, PRE, Gavin2004, Pirovani}.
+The growing availability of  data, however, calls for the development of novel statistical approaches to inference, and new methods for data exploration, visualization and knowledge discovery~\cite{putting,cancer,PRE,Gavin2004,Pirovani}.
 
 Complex Networks are flexible and powerful mathematical modeling tools, allowing  for the formal representation of systems.
-They find use in a vast set of scientific fields, such as sociology, physics and biology \cite{Barabasi2004,newman,surprise1,surprise2,watts,guell2012}.
-Several aspects of biological systems have been studied from a complex networks point of view, most notably protein interaction and metabolic pathways \cite{GoesNeto2010, surprise2, metabolic, guell2012}.
-In Biology, detecting community structure is specially useful in classification problems, such as protein annotation \cite{surprise2} and phylogenetics \cite{Andrade2011}.
+They find use in a vast set of scientific fields, such as sociology, physics and biology~\cite{Barabasi2004,newman,surprise1,surprise2,watts,guell2012}.
+Several aspects of biological systems have been studied from a complex networks point of view, most notably protein interaction and metabolic pathways~\cite{GoesNeto2010, surprise2, metabolic, guell2012}.
+In Biology, detecting community structure is specially useful in classification problems, such as protein annotation~\cite{surprise2} and phylogenetics~\cite{Andrade2011}.
 In this study, we develop a network-based approach to study molecular sequences from a well-known animal pathogen, combining ecological and epidemiological data to detect hidden associations in the data.
 
-Foot-and-mouth disease virus (FMDV) is a highly infectious and rapidly evolving RNA virus, that causes one the most important disease of domestic livestock, Foot-and-Mouth Disease (FMD) \cite{Malirat2007, Perez2001, Malirat2012A, andean, Carvalho2012}.
+Foot-and-mouth disease virus (FMDV) is a highly infectious and rapidly evolving RNA virus, that causes one the most important disease of domestic livestock, Foot-and-Mouth Disease (FMD) \cite{Malirat2007,Perez2001,Malirat2012A,andean,Carvalho2012}.
 Phylogenetic analysis are commonly used 
-Network analysis has also proved useful in studying the migration patterns of livestock, crucial to understanding FMD dynamics \cite{review,cattle}.
+Network analysis has also proved useful in studying the migration patterns of livestock, crucial to understanding FMD dynamics~\cite{review,cattle}.
 In this paper, networks are employed in a yet different way, providing insight into the evolution of FMDV in South America.
 Here we propose a network-based method to explore viral molecular data and recover useful information.
 We use 167 VP1 (1D) gene sequences to construct three symmetric matrices with sequence dissimilarities (nucleotides, amino acids and antigenic amino acid residues).
@@ -105,9 +105,9 @@ Then, section 3 summarizes the more relevant findings of the research and sectio
 \bigskip
 
 We downloaded all the 167 South American sequences for the 1D (VP1) gene of foot-and-mouth disease virus serotype O available at the National Center for Biotechnology Information (NCBI) website (\url{www.ncbi.nlm.nih.gov}).
-These sequences were then aligned using Clustal X software \cite{clustal}, and the aligment was visually checked for inconsistencies. Sequences were then translated into amino acids using a standard genetic code using the MEGA5 software \cite{MEGA}, and subsets comprising the antigenic residues of VP1 (positions $140$ to $160$ and $200$ to $211$) \cite{antigenic} were stored.
+These sequences were then aligned using Clustal X software~\cite{clustal}, and the aligment was visually checked for inconsistencies. Sequences were then translated into amino acids using a standard genetic code using the MEGA5 software~\cite{MEGA}, and subsets comprising the antigenic residues of VP1 (positions $140$ to $160$ and $200$ to $211$)~\cite{antigenic} were stored.
 Thus, three data sets were generated: nucleotides (NT), amino acids (AA) and antigenic amino acid residues (ANT).
-Raw distance matrices were built for each data set using the \verb|dist.dna()| function, available from the \textbf{ape} package of the R Statistical Computing Language \cite{R}.
+Raw distance matrices were built for each data set using the \verb|dist.dna()| function, available from the \textbf{ape} package of the R Statistical Computing Language~\cite{R}.
 In these matrices, henceforth denoted $\mathbf{D}_{NT}$, $\mathbf{D}_{AA}$ and $\mathbf{D}_{ANT}$, each entry $d_{ij}$ is the scaled number of differing characters between sequences $i$ and $j$.
 Therefore, the matrices used in this study are symmetric, i.e., $d_{ij} = d_{ji}$, for all $i \neq j$.
 Each matrix was scaled to lie in $[0,100]$ by dividing each entry by the maximum distance of that matrix and multiplying by $100$.
@@ -123,7 +123,7 @@ Each matrix was scaled to lie in $[0,100]$ by dividing each entry by the maximum
 First, it may be useful to introduce some notation.
 A complex network can be defined as a graph $G=(V,E)$ representing a complex system in which entities are the edges $E$ and their interactions are represented as vertices $V$.
 In our setting, the vertices $V$ symbolize molecular sequences and each edge $E_{ij}$ stores the genetic distance between sequences $i$ and $j$.
-There are several topological indexes to characterize  complex networks' non-trivial structure, each of which captures a key feature, like network size and clustering \cite{Barabasi2004}.
+There are several topological indexes to characterize  complex networks' non-trivial structure, each of which captures a key feature, like network size and clustering~\cite{Barabasi2004}.
 
 In this study we calculated vertex degree $k(i)$, clustering coefficient $c(i)$ and the mean minimal distance $\langle l(i)\rangle$.
 The degree $k$ of a vertex counts the number of edges connected to it, while $\langle k \rangle$ is the average number of edges per vertex over the network.
@@ -151,7 +151,7 @@ Topological index & symbol & formula/derivation & interpretation in this study \
  \label{tab:concepts}
 \end{sidewaystable}
 
-For our study, it is also of interest to  include information about vertices, such as country of origin. Moreover, it is of scientific interest to know if vertices from the same country tend to cluster together. To quantify this, we use the assortativity coefficient, $r$ \cite{mixing} defined as :
+For our study, it is also of interest to  include information about vertices, such as country of origin. Moreover, it is of scientific interest to know if vertices from the same country tend to cluster together. To quantify this, we use the assortativity coefficient, $r$~\cite{mixing} defined as :
 \begin{equation}
  \label{eq:assort}
 r = \frac{\sum_{jk} jk(e_{jk}-q_kq_j)}{\sigma_{q}^{2}} 
@@ -164,10 +164,10 @@ where $e_{jk}$ is the joint probability distribution of the remaining degrees of
 \end{equation}
  and $\sigma_{q}^{2}=\sum_{k}k^2q_k-[kq_k]^2$ is the variance of $q_k$. 
 The assortativity coefficient can be extended to quantify mixing between specific groups of vertices, and here we also compute a nominal assortativity coefficient $r^{n}$ using information on the country of origin for each vertex.
-This approach can be extended to include any data (continuous and discrete) about vertices \cite{assort}.
+This approach can be extended to include any data (continuous and discrete) about vertices~\cite{assort}.
 
 Each matrix $\mathbf{D}$ gives rise to an weighted undirected network, with $N$ vertices (vertices) and $E$ edges.
-Here $N=167$, and $E=167(167-1)/2=13861$. After generating $\mathbf{D}$, we transform each weighted network into a family of non-weighted networks by applying a dissimilarity threshold through an indicator function, $m(\mathbf{D};\sigma)$ \cite{GoesNeto2010,Andrade2011}, such that:
+Here $N=167$, and $E=167(167-1)/2=13861$. After generating $\mathbf{D}$, we transform each weighted network into a family of non-weighted networks by applying a dissimilarity threshold through an indicator function, $m(\mathbf{D};\sigma)$~\cite{GoesNeto2010,Andrade2011}, such that:
 \begin{equation}
 M_{ij} =
 \begin{cases} 
