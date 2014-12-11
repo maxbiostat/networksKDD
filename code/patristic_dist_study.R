@@ -1,0 +1,25 @@
+#######################
+### Code for assessing the effects of using phylogenetic distances instead of patristic distances
+#Copyleft (or the one to blame): Carvalho, LMF (2014)
+#######################
+library(ape)
+aln <- read.dna("../data/input/O_sequences_aln.fasta", format = "fasta")
+anames <- row.names(aln)
+tree <- read.nexus("../data/input/GEO_O.tree") 
+pat_dist <- cophenetic(tree)
+tnames <- row.names(pat_dist)
+raw <- as.matrix(dist.dna(aln, model = "logdet"), ncol = 167)
+jc69 <- as.matrix(dist.dna(aln, model = "JC69"), ncol = 167)
+tn93 <- as.matrix(dist.dna(aln, model = "TN93"), ncol = 167)
+m <- match(anames, tnames)
+###
+plot(as.vector(pat_dist[m, m]), as.vector(raw), ylim = c(0, .35), col = 2, pch = 16, xlab = "Patristic Distance", ylab = "Phylogenetic Distance")
+points(as.vector(pat_dist[m, m]), as.vector(jc69), col = 3, pch = 16)
+points(as.vector(pat_dist[m, m]), as.vector(tn93), col="blue",pch=16)
+legend(x = "bottomright", legend = c("P-distance", "JC69", "TN93"), col = c(2, 3, "blue"), pch = rep(16, 3), cex = 1 , bty = "n")
+cor(as.vector(pat_dist[m, m]), as.vector(raw), method = "spearman")
+cor(as.vector(pat_dist[m, m]), as.vector(jc69), method = "spearman")
+cor(as.vector(pat_dist[m, m]), as.vector(tn93), method = "spearman")
+dist.topo(tree, nj(raw))
+dist.topo(tree, nj(jc69))
+dist.topo(tree, nj(tn93))
