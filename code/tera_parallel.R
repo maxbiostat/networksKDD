@@ -4,6 +4,7 @@
 # Last update: 30/05/2014  
 ##################################################
 source("graph_entropy.R")
+require(compiler)
 tera_step <- function(t,  M,  export = "FALSE",  path){
   # M is the distance matrix of the original weighted graph
   # s_min is the vector with thresholds (\sigma)
@@ -35,11 +36,12 @@ tera_step <- function(t,  M,  export = "FALSE",  path){
   cC <- 2*E/(V*(V-1)) 
   cK <- cC*(V-1)
   cL <- log(V)/log(cK)    
-  return(list(betweenness = Bet, indexes = c(K = K, cK = cK, Gclu = Gclu,
+  return(list(Matrix = tim, betweenness = Bet, indexes = c(K = K, cK = cK, Gclu = Gclu,
                                              Aclu = Aclu, cC = cC, D = D, L = L,
                                              E = E, cL = cL, ent = ent, AS = AS,
                                              ASG = ASG)))
 }
+tera_step <- cmpfun(tera_step)
 #######################################################
 tera.parallel <- function(M, s_min, export = "FALSE", path, cores = 4){
   require(doMC)

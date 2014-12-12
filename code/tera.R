@@ -4,6 +4,7 @@
 # Last update: 30/05/2014  
 # TODO: make it more general and create documentation
 ##################################################
+require(compiler)
 tera <- function(M, s_min, export = "FALSE", path){
   # M is the distance matrix of the original weighted graph
   # s_min is the vector with thresholds (\sigma \in [0, 1]) 
@@ -51,6 +52,7 @@ tera <- function(M, s_min, export = "FALSE", path){
                                    Aclu, cC,D, L, E, cL,
                                    ent, AS, ASG)))
 }
+tera <- cmpfun(tera)
 #######################################################
 ## Function to extract influent nodes (vertices),  with high betweenness
 extract.influent <- function(B, cp, alpha) {
