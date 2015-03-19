@@ -33,8 +33,8 @@ tera <- function(M, s_min, export = "FALSE", path){
     }
     B[[i]] <- betweenness(G) #calculates the betweenness for every connected edge in the graph
     K[i] <- mean(igraph::degree(G))
-    Gclu[i] <- transitivity(G, type = c("global"))
-    Aclu[i] <- transitivity(G, type = c("average"))
+    Gclu[i] <- transitivity(G, type = "global")
+    Aclu[i] <- transitivity(G, type = "average")
     D[i] <- diameter(G)
     L[i] <- average.path.length(G) 
     ent[i] <- graph.entropy(tim)
