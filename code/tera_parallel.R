@@ -1,7 +1,6 @@
 ### PARALLEL implementation of the Threshold Edge Removal Algorithm (TERA) 
 #   described in Carvalho,  Santos & Silveira,  2014 ###
 # Copyleft (or the one to blame): Carvalho,  LMF (2014)
-# Last update: 30/05/2014  
 ##################################################
 # source("graph_entropy.R") ## depends on this script, BEWARE
 tera_step <- function(t,  M,  export = "FALSE",  path){
