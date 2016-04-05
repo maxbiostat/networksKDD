@@ -3,7 +3,7 @@
 # Copyleft (or the one to blame): Carvalho,  LMF (2014)
 # Last update: 30/05/2014  
 ##################################################
-source("graph_entropy.R")
+# source("graph_entropy.R") ## depends on this script, BEWARE
 tera_step <- function(t,  M,  export = "FALSE",  path){
   # M is the distance matrix of the original weighted graph
   # s_min is the vector with thresholds (\sigma)
