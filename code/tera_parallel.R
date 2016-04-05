@@ -40,7 +40,6 @@ tera_step <- function(t,  M,  export = "FALSE",  path){
                                              E = E, cL = cL, ent = ent, AS = AS,
                                              ASG = ASG)))
 }
-tera_step <- tera_step
 #######################################################
 tera.parallel <- function(M, s_min, export = "FALSE", path, cores = 4){
   require(doMC)
